@@ -62,5 +62,27 @@ namespace TestFractions
             Fractions ris = new Fractions();
             Assert.Throws<Exception>(() => ris = f.Dividi(f2));
         }
+        [Fact]
+        public void testToString()
+        {
+            Fractions f = new Fractions(14, 3);
+            string s;
+            s=f.ToString();
+            Assert.True(s=="14/3");
+        }
+        [Fact]
+        public void testEsiste()
+        {
+            Fractions f=new Fractions();
+            Assert.True(Fractions.Esiste(f)==true);
+        }
+        [Fact]
+        public void testClone()
+        {
+            Fractions f = new Fractions(14,3);
+            Fractions f2 = new Fractions(5, 3);
+            f2 = Fractions.Clone(f);
+            Assert.True(f.Numeratore==f2.Numeratore && f.Denominatore==f2.Denominatore);
+        }
     }
 }
